@@ -1,0 +1,644 @@
+sustainability-site/
+  index.html
+  certification.html
+  regulations-resources.html
+  contact.html
+  styles.css
+:root{
+  /* Branding */
+  --white:#ffffff;
+  --dark:#0b2a1e;          /* deep green */
+  --dark-2:#103626;        /* slightly lighter deep green */
+  --light:#dff7ea;         /* light green background */
+  --green:#2fbf7a;         /* primary green */
+  --green-2:#1f8f5f;       /* hover green */
+
+  /* Purple highlight */
+  --purple:#c9b7ff;        /* light purple accent */
+  --purple-2:#a892ff;
+
+  /* UI */
+  --text:#0b2a1e;
+  --muted:#2b5644;
+  --line:rgba(16,54,38,.18);
+  --shadow: 0 14px 32px rgba(11,42,30,.12);
+  --radius:18px;
+  --max: 1040px;
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(47,191,122,.18), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(201,183,255,.22), transparent 55%),
+    linear-gradient(180deg, var(--light), #f8fffb 65%, var(--white));
+}
+
+a{color:var(--dark); text-decoration: none}
+a:hover{text-decoration: underline}
+
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding: 14px 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  letter-spacing:.2px;
+}
+.brand-mark{
+  width:14px;
+  height:14px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 0 7px rgba(47,191,122,.18);
+}
+.brand small{
+  display:block;
+  font-weight:600;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+
+.navlinks{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-end;
+}
+.navlinks a{
+  font-size:14px;
+  padding:8px 10px;
+  border-radius: 999px;
+  border:1px solid transparent;
+  color: var(--dark-2);
+}
+.navlinks a:hover{
+  text-decoration:none;
+  border-color: var(--line);
+  background: rgba(47,191,122,.08);
+}
+.navlinks a[aria-current="page"]{
+  border-color: rgba(47,191,122,.35);
+  background: rgba(47,191,122,.12);
+  font-weight:700;
+}
+
+.hero{
+  margin: 22px 0 16px;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.hero h1{
+  margin:0 0 10px;
+  font-size: clamp(26px, 3.2vw, 44px);
+  line-height:1.1;
+}
+.hero p{
+  margin:0;
+  color: var(--muted);
+  max-width: 78ch;
+  font-size: 16px;
+}
+
+.hero .chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.chip{
+  font-size:13px;
+  padding:7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(223,247,234,.55);
+  color: var(--dark-2);
+}
+.chip.purple{
+  background: rgba(201,183,255,.22);
+  border-color: rgba(168,146,255,.35);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 16px 0 34px;
+}
+@media (min-width: 900px){
+  .grid.two{ grid-template-columns: 1fr 1fr; }
+}
+
+.card{
+  background: rgba(255,255,255,.90);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: 0 10px 22px rgba(11,42,30,.10);
+}
+.card h2{
+  margin:0 0 10px;
+  font-size: 20px;
+}
+.card p{ margin: 10px 0; color: var(--muted); }
+.card ul{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+.card li{ margin: 6px 0; }
+
+.callout{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(168,146,255,.40);
+  background: rgba(201,183,255,.18);
+  color: var(--dark-2);
+  font-size: 14px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 14px;
+}
+.button{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(47,191,122,.45);
+  background: rgba(47,191,122,.12);
+  color: var(--dark);
+  font-weight: 700;
+}
+.button:hover{
+  text-decoration:none;
+  background: rgba(47,191,122,.18);
+}
+.button.secondary{
+  border-color: rgba(168,146,255,.45);
+  background: rgba(201,183,255,.18);
+}
+.button.secondary:hover{
+  background: rgba(201,183,255,.24);
+}
+
+.hr{
+  height:1px;
+  background: var(--line);
+  margin: 18px 0;
+}
+
+footer{
+  padding: 22px 0 36px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.kicker{
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.form{
+  display:grid;
+  gap:12px;
+  margin-top: 10px;
+}
+label{
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark-2);
+}
+input, textarea{
+  width:100%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(16,54,38,.22);
+  background: rgba(255,255,255,.9);
+  font-family: var(--font);
+  font-size: 15px;
+}
+textarea{ min-height: 140px; resize: vertical; }
+.helptext{
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: -6px;
+}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Los Altos Sustainability Certification | Home</title>
+  <meta name="description" content="Los Altos sustainability certification: overview, requirements, resources, and support." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          Los Altos Sustainability Certification
+          <small>Clear requirements • Practical resources • Community impact</small>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="certification.html">Certification Info</a>
+        <a href="regulations-resources.html">Regulations & Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Recognizing businesses reducing waste and emissions.</h1>
+      <p>
+        This site explains what the sustainability certificate means, what the City of Los Altos requires,
+        and where to find the best resources to comply—without unnecessary hassle.
+      </p>
+      <div class="chips" aria-label="Highlights">
+        <span class="chip">Single-use plastic reduction</span>
+        <span class="chip">Food waste diversion</span>
+        <span class="chip purple">Gold & Platinum leadership</span>
+      </div>
+      <div class="actions">
+        <a class="button" href="certification.html">Learn what the certificate means →</a>
+        <a class="button secondary" href="regulations-resources.html">See requirements & resources →</a>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>The Why Behind the Certification</h2>
+        <p>
+          Reducing plastic and food waste is one of the most effective ways communities can cut greenhouse gas emissions
+          and protect the environment. Plastics are made from fossil fuels, and their production and disposal release
+          significant carbon emissions while creating long-lasting pollution that harms ecosystems and wildlife.
+        </p>
+        <p>
+          Food waste poses an even more immediate climate threat: when food decomposes in landfills without oxygen,
+          it produces methane, a greenhouse gas far more powerful than carbon dioxide. By reducing single-use plastics
+          and diverting food waste from landfills, emissions are lowered, pollution is reduced, and organic material can be
+          transformed into compost that supports healthier soils and carbon storage.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Quick Start</h2>
+        <p class="kicker">If you’re a business owner, start here:</p>
+        <ul>
+          <li>Understand which foodware is allowed (fiber, aluminum) and which is restricted (conventional plastics, many bioplastics like PLA, PFAS-containing items).</li>
+          <li>Make sure accessories (utensils/straws) are only provided upon request and are compliant.</li>
+          <li>Set up composting and follow SB 1383 rules for food waste diversion.</li>
+        </ul>
+        <div class="callout">
+          Want help navigating it? Visit the <a href="contact.html">Contact</a> page—support is free.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="hr"></div>
+    <div>© <span id="year"></span> Los Altos Sustainability Certification</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certification Information | Los Altos Sustainability Certification</title>
+  <meta name="description" content="What the certificate represents, and Gold/Platinum recognition details." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          Los Altos Sustainability Certification
+          <small>Certification information</small>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="certification.html" aria-current="page">Certification Info</a>
+        <a href="regulations-resources.html">Regulations & Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>What this certificate represents</h1>
+      <p>
+        This certificate is awarded to businesses that meet the core sustainability requirements established by the City of Los Altos.
+        The requirements focus on reducing waste, cutting emissions, and minimizing environmental harm through responsible food service practices.
+      </p>
+      <div class="chips">
+        <span class="chip">City requirements</span>
+        <span class="chip">Waste reduction</span>
+        <span class="chip purple">Leadership levels</span>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Key policies included</h2>
+        <ul>
+          <li><strong>Single-Use Plastic Foodware Ordinance</strong> — shifts food service away from plastic and toward reusable or compliant non-plastic alternatives</li>
+          <li><strong>Plastic Bag Ban</strong> — replaces single-use plastic carryout bags with recycled paper or reusable bags</li>
+          <li><strong>SB 1383</strong> — targets methane by diverting food waste from landfills and recovering edible food</li>
+        </ul>
+        <div class="actions">
+          <a class="button" href="regulations-resources.html">View requirements & resources →</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Gold &amp; Platinum certification</h2>
+        <p>
+          Businesses earning a <strong>Gold</strong> designation go beyond baseline requirements and demonstrate leadership in sustainability.
+          Examples include educating customers, working with sustainable suppliers, prioritizing seasonal/local ingredients,
+          offering more plant-focused menus, or electrifying facilities and kitchen equipment.
+        </p>
+        <p>
+          <strong>Platinum</strong> highlights businesses that are not only compliant, but deeply committed to environmental progress.
+        </p>
+        <div class="callout">
+          You can list Gold/Platinum criteria here as you finalize them (this box is a great place for a short checklist).
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="hr"></div>
+    <div>© <span id="year"></span> Los Altos Sustainability Certification</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regulations & Resources | Los Altos Sustainability Certification</title>
+  <meta name="description" content="Foodware ordinance guidance, SB 1383 summary, and official resources." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          Los Altos Sustainability Certification
+          <small>Regulations & resources</small>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="certification.html">Certification Info</a>
+        <a href="regulations-resources.html" aria-current="page">Regulations & Resources</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Regulations & resources</h1>
+      <p>
+        Clear, practical guidance on the main rules—plus the best links for approved products and composting.
+      </p>
+      <div class="actions">
+        <a class="button secondary" href="https://www.losaltosca.gov/242/Single-use-Plastic-Foodware-Ordinance" target="_blank" rel="noopener">
+          Official Foodware Ordinance →
+        </a>
+        <a class="button" href="#resources">Jump to resources ↓</a>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Single-Use Plastic Foodware Ordinance</h2>
+        <p>
+          Approved foodware options include fiber-based products (paper, wood, sugarcane/bagasse, bamboo) and recyclable aluminum containers.
+          The ordinance prohibits conventional single-use plastics and restricts compostable/bio-plastics (such as PLA), as well as foodware containing PFAS.
+        </p>
+        <p>
+          Fiber-based containers with a PLA lining may be allowed if certified by a third-party compostability organization recognized by the City,
+          such as <strong>BPI</strong> or <strong>CMA</strong>.
+        </p>
+        <div class="callout">
+          Accessories: Single-use plastic accessories (including plastic utensils) are prohibited. Compliant accessories may only be provided upon request.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Plastic bags + minimum fee</h2>
+        <p>
+          Businesses must use recycled paper bags or reusable bags (instead of single-use plastic carryout bags),
+          with a <strong>minimum charge of $0.25 per bag</strong>.
+        </p>
+        <div class="callout">
+          Tip: Put a small sign at checkout explaining the fee + sustainability purpose—customers usually respond better when it’s transparent.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>SB 1383: Food waste & composting</h2>
+        <p>
+          SB 1383 reduces methane emissions by keeping food waste out of landfills.
+          Large restaurants (250+ seats or 5,000+ sq ft) must divert surplus edible food to recovery organizations,
+          and all food service businesses are required to compost inedible food waste.
+        </p>
+        <ul>
+          <li>Edible food recovery (for covered large generators)</li>
+          <li>Commercial composting for inedible food waste</li>
+        </ul>
+      </section>
+
+      <section id="resources" class="card">
+        <h2>Resources for making the transition</h2>
+        <ul>
+          <li>
+            <strong>Foodware Purchasing Guide (City of Los Altos)</strong>:
+            <a href="https://docs.google.com/spreadsheets/d/10GyjdaeAkHp66FJ71RFckXATikL3PGS1ZQ8Uyh5PlWw/edit#gid=0" target="_blank" rel="noopener">
+              View guide →
+            </a>
+          </li>
+          <li>
+            <strong>World Centric containers</strong> (check each item for compliance):
+            <a href="https://www.goodstartpackaging.com/world-centric-to-go-containers/" target="_blank" rel="noopener">
+              Browse →
+            </a>
+          </li>
+          <li>
+            <strong>Commercial Composting Sorting Guide</strong>:
+            <a href="https://www.losaltosca.gov/DocumentCenter/View/868/Commercial-Services-Guide-PDF?bidId=" target="_blank" rel="noopener">
+              Open PDF →
+            </a>
+          </li>
+        </ul>
+        <div class="callout">
+          Not sure whether a product is compliant? You can ask for help on the <a href="contact.html">Contact</a> page.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="hr"></div>
+    <div>© <span id="year"></span> Los Altos Sustainability Certification</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Los Altos Sustainability Certification</title>
+  <meta name="description" content="Questions or support—free help by email or meeting over Zoom." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          Los Altos Sustainability Certification
+          <small>Contact</small>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="certification.html">Certification Info</a>
+        <a href="regulations-resources.html">Regulations & Resources</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Questions or support</h1>
+      <p>
+        If you have questions or would like help navigating these requirements, I’m very happy to assist—free of charge.
+        I’m always available by email and would also be glad to meet in person or over Zoom.
+      </p>
+      <div class="callout">
+        Replace the email below with your real email address.
+      </div>
+      <div class="actions">
+        <a class="button" href="mailto:youremail@example.com?subject=Los%20Altos%20Sustainability%20Certification%20Question">
+          Email me →
+        </a>
+        <a class="button secondary" href="regulations-resources.html">Review resources →</a>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Send a message</h2>
+        <p class="muted">
+          This form is optional. Since this is a simple static site, it won’t “submit” anywhere unless you connect it to a form service.
+          If you want, I can help you connect it to Google Forms / Formspree later.
+        </p>
+
+        <form class="form" onsubmit="event.preventDefault(); alert('This demo form is not connected yet. Use the Email button above or connect a form service.');">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help?"></textarea>
+          </div>
+          <div class="helptext">Tip: Mention your business name + what foodware you’re currently using.</div>
+          <button class="button" type="submit">Send (demo)</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>What I can help with</h2>
+        <ul>
+          <li>Quick compliance check of your current takeout containers and accessories</li>
+          <li>Finding compliant options in the Foodware Purchasing Guide</li>
+          <li>Basic signage wording (bag fee, “by request” utensils, etc.)</li>
+          <li>Composting setup and SB 1383 questions</li>
+        </ul>
+        <div class="callout">
+          Prefer a meeting? Email me and suggest a few times for Zoom or in person.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="hr"></div>
+    <div>© <span id="year"></span> Los Altos Sustainability Certification</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
