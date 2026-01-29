@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Los Altos Sustainability Certification</title>
+  <meta name="description" content="Questions or support—free help by email or meeting over Zoom." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          Los Altos Sustainability Certification
+          <small>Contact</small>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="certification.html">Certification Info</a>
+        <a href="regulations-resources.html">Regulations & Resources</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Questions or support</h1>
+      <p>
+        If you have questions or would like help navigating these requirements, I’m very happy to assist—free of charge.
+        I’m always available by email and would also be glad to meet in person or over Zoom.
+      </p>
+      <div class="callout">
+        Replace the email below with your real email address.
+      </div>
+      <div class="actions">
+        <a class="button" href="mailto:youremail@example.com?subject=Los%20Altos%20Sustainability%20Certification%20Question">
+          Email me →
+        </a>
+        <a class="button secondary" href="regulations-resources.html">Review resources →</a>
+      </div>
+    </section>
+
+    <div class="grid two">
+      <section class="card">
+        <h2>Send a message</h2>
+        <p class="muted">
+          This form is optional. Since this is a simple static site, it won’t “submit” anywhere unless you connect it to a form service.
+          If you want, I can help you connect it to Google Forms / Formspree later.
+        </p>
+
+        <form class="form" onsubmit="event.preventDefault(); alert('This demo form is not connected yet. Use the Email button above or connect a form service.');">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help?"></textarea>
+          </div>
+          <div class="helptext">Tip: Mention your business name + what foodware you’re currently using.</div>
+          <button class="button" type="submit">Send (demo)</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>What I can help with</h2>
+        <ul>
+          <li>Quick compliance check of your current takeout containers and accessories</li>
+          <li>Finding compliant options in the Foodware Purchasing Guide</li>
+          <li>Basic signage wording (bag fee, “by request” utensils, etc.)</li>
+          <li>Composting setup and SB 1383 questions</li>
+        </ul>
+        <div class="callout">
+          Prefer a meeting? Email me and suggest a few times for Zoom or in person.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container">
+    <div class="hr"></div>
+    <div>© <span id="year"></span> Los Altos Sustainability Certification</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
